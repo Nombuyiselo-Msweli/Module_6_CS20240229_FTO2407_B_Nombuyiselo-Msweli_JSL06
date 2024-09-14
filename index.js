@@ -13,31 +13,36 @@ function displayMenuItems(menu) {
         // Create an element to represent the category
         // Set the text content of the category element to the category name
         // Append the category element to the menu container
-       
+    
+
+        //=== ATTEMPT 2 AT GETTING KEYS AS HEADINGS ===
         let menuCategoryElement = document.createElement('h1');
-        menuCategoryElement.textContent = Object.keys(menu);
+        for (let x in menu) {
+          menuCategoryElement.textContent += menu[x] + "<br>"
+        }
         menuDiv.appendChild(menuCategoryElement);
+
+        //=== ATTEMPT 1 AT GETTING KEYS AS HEADINGS ====
+        //let menuCategoryElement = document.createElement('h1');
+        //menuCategoryElement.textContent = Object.keys(menu);
+        //menuDiv.appendChild(menuCategoryElement);
 
         // Create an element to represent a list of items
         let itemsList = document.getElementById("order-items"); 
         // Append a list of items element to the menu container
         menuDiv.appendChild(itemsList); 
         // Loop through the items in the category and create list items
-
             // Create a list item element
-
             // Set the text content of the list item element to the item name
-
             // Attach a click event listener to the list item to add it to the order
-
             // Append the list item to the list of items
 
             let menuItemElement = document.createElement('li');
-            menuItemElement.textContent = Object.values(menu);
+            menuItemElement.textContent = Object.values(menu) ;
             itemsList.appendChild(menuItemElement);
-            
+
+
 }
-displayMenuItems(menu);
 
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
@@ -56,7 +61,7 @@ function addToOrder(itemName) {
 
 // Function to initialize the menu system
 function initMenuSystem(menu) {
-    // Call the function to display menu items
+    displayMenuItems(menu);
 }
 
 // Start the menu system by calling the init function
