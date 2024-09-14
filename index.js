@@ -13,15 +13,15 @@ function displayMenuItems(menu) {
         // Create an element to represent the category
         // Set the text content of the category element to the category name
         // Append the category element to the menu container
-       // for(i=0; i < menu.length; i++){
-        let menuCategoryElement = document.createElement('h1')
+       
+        let menuCategoryElement = document.createElement('h1');
         menuCategoryElement.textContent = Object.keys(menu);
         menuDiv.appendChild(menuCategoryElement);
-       // }
+
         // Create an element to represent a list of items
-
+        let itemsList = document.getElementById("order-items"); 
         // Append a list of items element to the menu container
-
+        menuDiv.appendChild(itemsList); 
         // Loop through the items in the category and create list items
 
             // Create a list item element
@@ -32,6 +32,9 @@ function displayMenuItems(menu) {
 
             // Append the list item to the list of items
 
+            let menuItemElement = document.createElement('li');
+            menuItemElement.textContent = Object.values(menu);
+            itemsList.appendChild(menuItemElement);
             
 }
 displayMenuItems(menu);
